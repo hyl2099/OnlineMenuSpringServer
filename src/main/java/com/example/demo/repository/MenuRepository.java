@@ -6,7 +6,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import javax.transaction.Transactional;
 
-public interface TeacherRepository extends CrudRepository<Teacher, Long> {
+public interface MenuRepository extends CrudRepository<Menu, Long> {
 
     @Modifying//更新查询
     @Transactional//开启事务
