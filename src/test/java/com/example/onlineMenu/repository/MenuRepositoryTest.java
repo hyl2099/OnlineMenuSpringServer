@@ -1,5 +1,6 @@
-package com.example.demo.repository;
+package com.example.onlineMenu.repository;
 
+import com.example.onlineMenu.documents.Menu;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

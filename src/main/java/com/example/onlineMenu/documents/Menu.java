@@ -1,4 +1,4 @@
-package com.example.demo.repository;
+package com.example.onlineMenu.documents;
 
 import javax.persistence.*;
 

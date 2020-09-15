@@ -1,7 +1,7 @@
-package com.example.demo.Controller;
+package com.example.onlineMenu.Controller;
 
-import com.example.demo.repository.Menu;
-import com.example.demo.repository.MenuRepository;
+import com.example.onlineMenu.documents.Menu;
+import com.example.onlineMenu.repository.MenuRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
