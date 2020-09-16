@@ -1,3 +1,3 @@
 # OnlineMenuSpringServer
 
-![OnlineMenuSpringServer][classes-jpg]
+![OnlineMenuSpringServer][classes.jpg]
