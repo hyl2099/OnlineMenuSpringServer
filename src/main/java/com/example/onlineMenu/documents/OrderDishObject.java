@@ -1,20 +1,11 @@
 package com.example.onlineMenu.documents;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import java.util.Date;
+import java.util.List;
 
-public class Order {
-
-    //    声明主键
-    @Id
-    //    声明主键生成策略为 自动
-    @GeneratedValue(strategy = GenerationType.AUTO)
+public class OrderDishObject {
     private Long id;
     private String userWeChat;
-    @Column(length = 100)    // 声明字段的长度为100
     private String description; // 点菜描述，例如不要辣。。
     private Float order_price;
     private String actual_price;
@@ -22,8 +13,10 @@ public class Order {
     private Integer order_status;
     private Date add_time;
     private Date pay_time;
+    private List<OrderDishList> dishes;
 
-    public Order(String userWeChat, String description, Float order_price, String actual_price, String mobile, Integer order_status, Date add_time, Date pay_time) {
+    public OrderDishObject(Long id,String userWeChat, String description, Float order_price, String actual_price, String mobile, Integer order_status, Date add_time, Date pay_time, List<OrderDishList> dishes) {
+        this.id = id;
         this.userWeChat = userWeChat;
         this.description = description;
         this.order_price = order_price;
@@ -32,6 +25,7 @@ public class Order {
         this.order_status = order_status;
         this.add_time = add_time;
         this.pay_time = pay_time;
+        this.dishes = dishes;
     }
 
     public Long getId() {
@@ -104,5 +98,13 @@ public class Order {
 
     public void setPay_time(Date pay_time) {
         this.pay_time = pay_time;
+    }
+
+    public List<OrderDishList> getDishes() {
+        return dishes;
+    }
+
+    public void setDishes(List<OrderDishList> dishes) {
+        this.dishes = dishes;
     }
 }

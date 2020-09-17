@@ -1,25 +1,55 @@
 package com.example.onlineMenu.Controller;
 
-import com.example.onlineMenu.documents.Menu;
+import com.example.onlineMenu.businessController.OrderBusinessController;
+import com.example.onlineMenu.businessController.OrderDishListBusinessController;
 import com.example.onlineMenu.documents.Order;
-import com.example.onlineMenu.repository.MenuRepository;
+import com.example.onlineMenu.documents.OrderDishList;
+import com.example.onlineMenu.documents.OrderDishObject;
+import com.example.onlineMenu.repository.OrderDishListRepository;
 import com.example.onlineMenu.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+
 
 public class OrderContoler {
-    @Autowired
-    private OrderRepository orderRepository;
+    private OrderDishListBusinessController orderDishListBusinessController;
+    private OrderBusinessController orderBusinessController;
 
-    // 设置路由
-    @RequestMapping("/teacher/save")
-    // 使用@RequestBody注解，将请求的`json`数据，直接加载至teacher对象
-    public Order saveTeacher(@RequestBody Order order) {
-        // 打印加载的数据
-        System.out.println(order);
-        // 调用保存操作
-        return orderRepository.save(order);
+    @Autowired
+    public OrderContoler(OrderDishListBusinessController orderDishListBusinessController,OrderBusinessController orderBusinessController) {
+        this.orderDishListBusinessController = orderDishListBusinessController;
+        this.orderBusinessController = orderBusinessController;
     }
+
+
+    @RequestMapping("/order/add")
+    public void addOrder(@RequestBody OrderDishObject orderDishes) {
+        //分两步，
+        //1，把传过来的list拆出来，选出order相关信息写进order表
+        //2，选出具体点菜的dish的写进OrderDishList
+        Order o = new Order(orderDishes.getUserWeChat(),orderDishes.getDescription(),orderDishes.getOrder_price(),
+                orderDishes.getActual_price(),orderDishes.getMobile(),orderDishes.getOrder_status(),orderDishes.getAdd_time(),orderDishes.getPay_time());
+        orderBusinessController.saveOrder(o);
+        for(int i = 0; i<= orderDishes.getDishes().size();i++){
+            OrderDishList dish = orderDishes.getDishes().get(i);
+            this.orderDishListBusinessController.saveDish(dish);
+        }
+    }
+
+
+    @GetMapping("/order/all")
+    public Iterable<OrderDishObject> readAll(){
+//        orderBusinessController.readAll();
+        return null;
+
+    }
+
+    @DeleteMapping("/order/delete/{id}")
+    public void deleteTemperature(@PathVariable Long id) {
+        this.orderBusinessController.deleteOrder(id);
+        this.orderDishListBusinessController.deleteByOrderId(id);
+    }
+
+
 
 }
