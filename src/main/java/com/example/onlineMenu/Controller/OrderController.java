@@ -5,18 +5,16 @@ import com.example.onlineMenu.businessController.OrderDishListBusinessController
 import com.example.onlineMenu.documents.Order;
 import com.example.onlineMenu.documents.OrderDishList;
 import com.example.onlineMenu.documents.OrderDishObject;
-import com.example.onlineMenu.repository.OrderDishListRepository;
-import com.example.onlineMenu.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 
-public class OrderContoler {
+public class OrderController {
     private OrderDishListBusinessController orderDishListBusinessController;
     private OrderBusinessController orderBusinessController;
 
     @Autowired
-    public OrderContoler(OrderDishListBusinessController orderDishListBusinessController,OrderBusinessController orderBusinessController) {
+    public OrderController(OrderDishListBusinessController orderDishListBusinessController,OrderBusinessController orderBusinessController) {
         this.orderDishListBusinessController = orderDishListBusinessController;
         this.orderBusinessController = orderBusinessController;
     }
