@@ -1,4 +1,4 @@
-package com.example.onlineMenu.Controller;
+package com.example.onlineMenu.controller;
 
 import com.example.onlineMenu.businessController.OrderBusinessController;
 import com.example.onlineMenu.businessController.OrderDishListBusinessController;
