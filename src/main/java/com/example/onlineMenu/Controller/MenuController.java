@@ -26,7 +26,7 @@ public class MenuController {
     }
 
     @GetMapping("/menu/all")
-    public Iterable<MenuRepository> findAll(){
+    public Iterable<Menu> findAll(){
         return menuBusinessController.readAll();
     }
 

@@ -9,10 +9,4 @@ import javax.transaction.Transactional;
 
 public interface MenuRepository extends CrudRepository<Menu, Long> {
 
-    @Modifying//更新查询
-    @Transactional//开启事务
-    @Query("update Menu m set m.remark = ?1 where m.id = ?2")
-    void updatePictureRemark(String remark, Long id);
-
-
 }
