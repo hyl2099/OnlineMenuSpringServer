@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.Date;
+import java.util.List;
 
 public class Order {
 
@@ -16,6 +17,8 @@ public class Order {
     private String userWeChat;
     @Column(length = 100)    // 声明字段的长度为100
     private String description; // 点菜描述，例如不要辣。。
+    private List<OrderDishList> order_dishList;
+    private Float order_discount;
     private Float order_price;
     private String actual_price;
     private String mobile;

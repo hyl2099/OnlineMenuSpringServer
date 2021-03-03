@@ -25,7 +25,6 @@ public class PictureUploadController {
         this.pictureUploadBusinessController = pictureUploadBusinessController;
     }
 
-
     /**
      * 新建页面添加数据
      * 使用MultipartFile接口接收前台传的file（文件），其他的参数用实体类接收就可以了

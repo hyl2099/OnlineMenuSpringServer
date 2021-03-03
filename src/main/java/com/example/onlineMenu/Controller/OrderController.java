@@ -4,7 +4,6 @@ import com.example.onlineMenu.businessController.OrderBusinessController;
 import com.example.onlineMenu.businessController.OrderDishListBusinessController;
 import com.example.onlineMenu.documents.Order;
 import com.example.onlineMenu.documents.OrderDishList;
-import com.example.onlineMenu.documents.OrderDishObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -37,7 +36,7 @@ public class OrderController {
 
     @GetMapping("/order/all")
     public Iterable<OrderDishObject> readAll(){
-//        orderBusinessController.readAll();
+        orderBusinessController.readAll();
         return null;
 
     }

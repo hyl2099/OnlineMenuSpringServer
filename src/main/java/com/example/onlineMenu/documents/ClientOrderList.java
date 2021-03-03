@@ -6,6 +6,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 public class ClientOrderList {
+    //用户一共点过的order的表
     //    声明主键
     @Id
     //    声明主键生成策略为 自动
