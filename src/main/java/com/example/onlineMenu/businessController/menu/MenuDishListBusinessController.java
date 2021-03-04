@@ -3,7 +3,6 @@ package com.example.onlineMenu.businessController.menu;
 import com.example.onlineMenu.documents.menu.MenuDishList;
 import com.example.onlineMenu.repository.menu.MenuDishListRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import javax.persistence.EntityNotFoundException;
 
 public class MenuDishListBusinessController {
@@ -38,14 +37,32 @@ public class MenuDishListBusinessController {
         }
     }
 
-
-
-
+    //修改一个菜是否上广告，并修改折扣价
+    public int  updateDishAD(Long id, MenuDishList dish) {
+        if (menuDishListRepository.findById(id) == null)
+        {
+            throw new EntityNotFoundException("the id :" + dish.getId().toString() + "Wrong, no entity.");
+        }
+        else {
+            this.menuDishListRepository.updateDishAD(
+                    dish.getIsInMenuOrAd(), dish.getDiscountPrice(), id);
+            return 1;
+        }
+    }
 
     //查询菜单中所以的菜，包括draft
-
+    //迭代器(Iterator)主要用来操作java里的集合对象(collection)。迭代器提供了统一的语法进行集合对象(collection)遍历操作，无需关心集合对象的内部实现方式。
+    public Iterable<MenuDishList> findAllDish(MenuDishList d){
+        return this.menuDishListRepository.findAll();
+    }
 
     //查询菜单中所有在菜单中的菜（not draft，即isInMenuOrAd =1）
+    public Iterable<MenuDishList> findAllMenuDish(MenuDishList d){
+        return this.menuDishListRepository.findOnMenuDishList();
+    }
 
     //查询菜单中所有在广告中的菜（not draft，即isInMenuOrAd =2）
+    public Iterable<MenuDishList> findAllADDish(MenuDishList d){
+        return this.menuDishListRepository.findOnADDishList();
+    }
 }
