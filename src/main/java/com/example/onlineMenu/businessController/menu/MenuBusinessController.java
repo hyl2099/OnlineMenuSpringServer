@@ -20,7 +20,9 @@ public class MenuBusinessController {
         return this.menuRepository.findAll();
     }
 
-    public Optional<Menu> searchOrder(Long id){
+
+    //如果只有一个默认menu的话以下都不需要
+    public Optional<Menu> searchMenu(Long id){
         return this.menuRepository.findById(id);
     }
 

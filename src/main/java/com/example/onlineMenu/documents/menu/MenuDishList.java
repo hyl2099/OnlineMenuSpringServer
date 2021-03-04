@@ -1,16 +1,20 @@
 package com.example.onlineMenu.documents.menu;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 
+import javax.persistence.*;
+
+@Entity
+@DynamicInsert
+@DynamicUpdate
 public class MenuDishList {
     //    声明主键
     @Id
     //    声明主键生成策略为 自动
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private Long menuId;
     @Column(length = 25)    // 声明字段的长度为25
     private String name;    // 菜名
     @Column(length = 50)
@@ -20,7 +24,9 @@ public class MenuDishList {
     private int isInMenuOrAd;//是否上菜单上广告，0为draft,1为在菜单上,2为既在菜单上又在广告上。
     private Float discountPrice;//打折价钱
 
-    public MenuDishList(String name, Long pictureId, String description, Float price, int isInMenuOrAd, Float discountPrice) {
+    public MenuDishList(Long menuId, String name, Long pictureId, String description, Float price, int isInMenuOrAd, Float discountPrice) {
+
+        this.menuId = menuId;
         this.name = name;
         this.pictureId = pictureId;
         this.description = description;
@@ -30,6 +36,7 @@ public class MenuDishList {
     }
 
     public MenuDishList(MenuDishList m) {
+        this.menuId = m.menuId;
         this.name = m.name;
         this.pictureId = m.pictureId;
         this.description = m.description;
@@ -40,6 +47,14 @@ public class MenuDishList {
 
     public Long getId() {
         return id;
+    }
+
+    public Long getMenuId() {
+        return menuId;
+    }
+
+    public void setMenuId(Long menuId) {
+        this.menuId = menuId;
     }
 
     public String getName() {
