@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 import javax.transaction.Transactional;
+import java.util.Optional;
 
 public interface MenuDishListRepository  extends CrudRepository<MenuDishList, Long> {
     @Modifying
@@ -17,8 +18,15 @@ public interface MenuDishListRepository  extends CrudRepository<MenuDishList, Lo
     //另一种写法
     @Modifying
     @Transactional//开启事务
-    @Query("update MenuDishList mdl set mdl.isInMenuOrAd =:isInMenuOrAd, mdl.discountPrice =:discountPrice where mdl.id =:id")
-    void updateDishAD(@Param("isInMenuOrAd") int isInMenuOrAd, @Param("discountPrice") Float discountPrice, @Param("id")Long id);
+    @Query("update MenuDishList mdl set mdl.isInMenuOrAd = 2, mdl.discountPrice =:discountPrice where mdl.id =:id")
+    void updateDishAD(@Param("discountPrice") Float discountPrice, @Param("id")Long id);
+
+
+    @Modifying
+    @Transactional//开启事务
+    @Query("update MenuDishList mdl set mdl.isInMenuOrAd = 1 where mdl.id =:id")
+    void updateDishOnMenu(@Param("id")Long id);
+
 
 
     //   JPA的查询语言,类似于sql
@@ -33,4 +41,13 @@ public interface MenuDishListRepository  extends CrudRepository<MenuDishList, Lo
     @Transactional//开启事务
     @Query("select mdl from MenuDishList mdl where mdl.isInMenuOrAd = 2")
     Iterable<MenuDishList> findOnADDishList();
+
+    @Transactional//开启事务
+    @Query("select mdl from MenuDishList mdl where mdl.name = ?1")
+    Optional<MenuDishList> findByName(String dishName);
+
+    @Transactional//开启事务
+    @Query("select mdl from MenuDishList mdl where mdl.discountPrice IS NOT NULL")
+    Optional<MenuDishList> searchDiscountDish();
+
 }
