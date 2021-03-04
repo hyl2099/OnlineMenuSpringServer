@@ -12,13 +12,9 @@ import java.util.Optional;
 
 public interface MenuRepository extends CrudRepository<Menu, Long> {
 
+    @Modifying
     @Transactional//开启事务
-    @Query("update MenuDishList mdl set " +
-            "mdl.name = ?1, mdl.pictureId = ?2, mdl.description = ?3, mdl.price = ?4, mdl.isInMenuOrAd = ?5,  mdl.discountPrice = ?6, mdl.id = ?7 where mdl.isInMenuOrAd = 1")
-    //isInMenuOrAd 0为draft,1为在菜单上,2为既在菜单上又在广告上。
-    List<MenuDishList> findAllDishList(String name, Long pictureId, String description, Float price, int isInMenuOrAd, Float discountPrice, Long id);
-
-    @Override
-    Optional<Menu> findById(Long aLong);
+    @Query("update Menu m set m.name = ?2 where m.id = ?1")
+    void updateMenuName(Long id, String name);
 
 }

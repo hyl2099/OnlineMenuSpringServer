@@ -10,28 +10,27 @@ public class Menu {
     //    声明主键生成策略为 自动
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private List<MenuDishList> dishList;
+    private String name;
 
-    public Menu(List<MenuDishList> dishList) {
-        this.dishList=dishList;
-    }
-
-    public Menu() {
+    public Menu(String name) {
+        this.name = name;
     }
 
     public Menu(Menu m) {
-        this.dishList = m.dishList;
+        this.name = m.name;
+    }
+    public Menu() {
     }
 
     public Long getId() {
         return id;
     }
 
-    public List<MenuDishList> getDishList() {
-        return dishList;
+    public String getName() {
+        return name;
     }
 
-    public void setDishList(List<MenuDishList> dishList) {
-        this.dishList = dishList;
+    public void setName(String name) {
+        this.name = name;
     }
 }
