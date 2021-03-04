@@ -1,7 +1,7 @@
-package com.example.onlineMenu.businessController;
+package com.example.onlineMenu.businessController.order;
 
-import com.example.onlineMenu.documents.Order;
-import com.example.onlineMenu.repository.OrderRepository;
+import com.example.onlineMenu.documents.order.Order;
+import com.example.onlineMenu.repository.order.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Optional;

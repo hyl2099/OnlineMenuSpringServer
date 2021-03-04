@@ -1,4 +1,4 @@
-package com.example.onlineMenu.documents;
+package com.example.onlineMenu.documents.order;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -9,7 +9,7 @@ public class OrderDishList {
     @GeneratedValue
     private Long id;
     private Long orderId;
-    private Long dishId;
+    private Long dishId;//menuDishList 中的ID
     private String dishName;
     private Float dishPrice;
     private String clientWechat;

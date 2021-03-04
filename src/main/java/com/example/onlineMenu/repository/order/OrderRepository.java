@@ -1,7 +1,7 @@
-package com.example.onlineMenu.repository;
+package com.example.onlineMenu.repository.order;
 
-import com.example.onlineMenu.documents.Order;
-import com.example.onlineMenu.documents.OrderDishList;
+import com.example.onlineMenu.documents.order.Order;
+import com.example.onlineMenu.documents.order.OrderDishList;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 

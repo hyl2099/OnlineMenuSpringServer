@@ -1,4 +1,4 @@
-package com.example.onlineMenu.documents;
+package com.example.onlineMenu.documents.user;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;

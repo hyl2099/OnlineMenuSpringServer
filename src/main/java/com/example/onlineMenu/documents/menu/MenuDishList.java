@@ -1,4 +1,4 @@
-package com.example.onlineMenu.documents;
+package com.example.onlineMenu.documents.menu;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
@@ -17,17 +17,15 @@ public class MenuDishList {
     private Long pictureId;   // 图片ID
     private String description; // 菜品描述
     private Float price;
-    private boolean isInMenu;//是否上菜单，true为在菜单上，0为draft
-    private boolean isInAD;//是否上广告，true为上主页面广告，0为draft
+    private int isInMenuOrAd;//是否上菜单上广告，0为draft,1为在菜单上,2为既在菜单上又在广告上。
     private Float discountPrice;//打折价钱
 
-    public MenuDishList(String name, Long pictureId, String description, Float price, boolean isInMenu, boolean isInAD, Float discountPrice) {
+    public MenuDishList(String name, Long pictureId, String description, Float price, int isInMenuOrAd, Float discountPrice) {
         this.name = name;
         this.pictureId = pictureId;
         this.description = description;
         this.price = price;
-        this.isInMenu = isInMenu;
-        this.isInAD = isInAD;
+        this.isInMenuOrAd = isInMenuOrAd;
         this.discountPrice = discountPrice;
     }
 
@@ -36,8 +34,7 @@ public class MenuDishList {
         this.pictureId = m.pictureId;
         this.description = m.description;
         this.price = m.price;
-        this.isInMenu = m.isInMenu;
-        this.isInAD = m.isInAD;
+        this.isInMenuOrAd = m.isInMenuOrAd;
         this.discountPrice = m.discountPrice;
     }
 
@@ -77,20 +74,12 @@ public class MenuDishList {
         this.price = price;
     }
 
-    public boolean isInMenu() {
-        return isInMenu;
+    public int getIsInMenuOrAd() {
+        return isInMenuOrAd;
     }
 
-    public void setInMenu(boolean inMenu) {
-        isInMenu = inMenu;
-    }
-
-    public boolean isInAD() {
-        return isInAD;
-    }
-
-    public void setInAD(boolean inAD) {
-        isInAD = inAD;
+    public void setIsInMenuOrAd(int isInMenuOrAd) {
+        this.isInMenuOrAd = isInMenuOrAd;
     }
 
     public Float getDiscountPrice() {

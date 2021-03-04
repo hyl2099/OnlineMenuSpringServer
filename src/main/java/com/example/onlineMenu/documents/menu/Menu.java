@@ -1,4 +1,4 @@
-package com.example.onlineMenu.documents;
+package com.example.onlineMenu.documents.menu;
 
 import javax.persistence.*;
 import java.util.List;

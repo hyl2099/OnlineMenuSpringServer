@@ -1,4 +1,4 @@
-package com.example.onlineMenu.documents;
+package com.example.onlineMenu.documents.order;
 
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;

@@ -1,9 +1,9 @@
 package com.example.onlineMenu.controller;
 
-import com.example.onlineMenu.businessController.OrderBusinessController;
-import com.example.onlineMenu.businessController.OrderDishListBusinessController;
-import com.example.onlineMenu.documents.Order;
-import com.example.onlineMenu.documents.OrderDishList;
+import com.example.onlineMenu.businessController.order.OrderBusinessController;
+import com.example.onlineMenu.businessController.order.OrderDishListBusinessController;
+import com.example.onlineMenu.documents.order.Order;
+import com.example.onlineMenu.documents.order.OrderDishList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

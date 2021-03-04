@@ -1,7 +1,7 @@
 package com.example.onlineMenu.businessController;
 
-import com.example.onlineMenu.documents.Picture;
-import com.example.onlineMenu.repository.PictureRepository;
+import com.example.onlineMenu.documents.menu.Picture;
+import com.example.onlineMenu.repository.menu.PictureRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
