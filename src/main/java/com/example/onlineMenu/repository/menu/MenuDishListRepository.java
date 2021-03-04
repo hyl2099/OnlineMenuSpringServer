@@ -64,5 +64,6 @@ public interface MenuDishListRepository  extends CrudRepository<MenuDishList, Lo
     @Query("delete from MenuDishList mdl where mdl.dishId = ?1 and mdl.menuId = ?2")
     Optional<MenuDishList> deleteDishInOneMenu(Long dishId, Long menuId);
 
-
+    //某个菜单中添加一个菜
+    //TODO
 }
