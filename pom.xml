@@ -9,10 +9,18 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.lisa</groupId>
-	<artifactId>springserver</artifactId>
+	<artifactId>springServer</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>menu</name>
 	<description>menuServer</description>
+
+	<developers>
+		<developer>
+			<name>YHu</name>
+			<id>yl</id>
+		</developer>
+	</developers>
+
 
 	<properties>
 		<!-- Encode -->
@@ -24,7 +32,7 @@
 		<java.version>14</java.version>
 
 		<!-- Maven -->
-		<maven.compiler.version>3.6.2</maven.compiler.version>
+		<maven.compiler.version>3.8.1</maven.compiler.version>
 		<maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
 		<!-- Maven. Test Integration -->
 		<maven-surefire-plugin.version>2.21.0</maven-surefire-plugin.version>
@@ -41,6 +49,10 @@
 		<!-- Spring Boot -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-webflux</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 		<dependency>
@@ -48,15 +60,22 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!-- spring security -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
-		<!--jpa 模块：关系型数据库-->
+
+		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-config -->
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-jpa</artifactId>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>5.3.4.RELEASE</version>
 		</dependency>
+
+
+
+
 		<!--jpa 模块：关系型数据库-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -114,6 +133,8 @@
 			<version>2.11.2</version>
 		</dependency>
 
+
+
 	</dependencies>
 
 	<build>
@@ -124,5 +145,14 @@
 			</plugin>
 		</plugins>
 	</build>
+
+	<repositories>
+		<repository>
+			<id>alimaven</id>
+			<name>aliyun maven</name>
+			<url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+		</repository>
+	</repositories>
+
 
 </project>
