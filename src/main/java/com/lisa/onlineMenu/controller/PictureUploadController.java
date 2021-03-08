@@ -54,7 +54,6 @@ public class PictureUploadController {
             System.out.println(newFile.getParentFile());
         }
         if(!newFile.exists()){
-            //使用transferTo()方法将文件存到所在服务器上
             file.transferTo(newFile);
         }
         return pictureUploadBusinessController.add(src,picture);
