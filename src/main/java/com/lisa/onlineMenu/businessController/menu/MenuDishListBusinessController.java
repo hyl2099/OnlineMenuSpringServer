@@ -16,6 +16,7 @@ public class MenuDishListBusinessController {
         this.menuDishListRepository = menuDishListRepository;
     }
 
+    /*******MenuDishList基本crud******/
     //查询所有的菜，不管在哪个菜单
     public Iterable<MenuDishList> findAll(){
         return this.menuDishListRepository.findAll();
@@ -31,9 +32,11 @@ public class MenuDishListBusinessController {
         this.menuDishListRepository.deleteById(id);
     }
 
+    /*******MenuDishList基本crud******/
 
 
-    //针对某个菜单中的菜对象
+
+    /*********针对某个菜单中的菜对象*****/
     //查询某ID的菜单中所有的菜，包括draft
     public Iterable<MenuDishList> findAllDishInOneMenu(Long menuId){
         return this.menuDishListRepository.findAllDishList(menuId);
@@ -102,7 +105,6 @@ public class MenuDishListBusinessController {
     public void deleteDishInOneMenu(Long dishId,Long menuId){
         this.menuDishListRepository.deleteDishInOneMenu(dishId,menuId);
     }
-
-
+    /*****针对某个菜单中的菜对象*****/
 
 }

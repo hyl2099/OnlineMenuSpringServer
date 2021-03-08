@@ -16,7 +16,7 @@ public class OrderDishListBusinessController {
         this.orderDishListRepository = orderDishListRepository;
     }
 
-    //针对所有OrderDishList
+    /****针对所有OrderDishList****/
     public Iterable<OrderDishList> readAll(){
         return this.orderDishListRepository.findAll();
     }
@@ -61,7 +61,16 @@ public class OrderDishListBusinessController {
 
 
 
-    //针对某个order中一个菜
+    /*******针对某个order中一个菜*****/
+    //查询某ID的菜单中所有的菜
+    public Optional<OrderDishList> findAllDishInOneMenu(Long orderId){
+        return this.orderDishListRepository.findAllDishList(orderId);
+    }
+
+    //查询某ID的菜单中某ID的菜
+    public Optional<OrderDishList> searchDishByIdInOneOrder(Long orderId,Long orderDishId){
+        return this.orderDishListRepository.searchDishByIdInOneOrder(orderId,orderDishId);
+    }
 
 
 

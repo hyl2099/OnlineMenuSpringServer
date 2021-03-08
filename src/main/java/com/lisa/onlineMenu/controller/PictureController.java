@@ -46,6 +46,7 @@ public class PictureController {
         return pictureBusinessController.savePicture(picture);
     }
 
+
     // @GetMapping 表明该方法只接收 get 请求.
     //根据图片Id返回图片的所有信息。
     @GetMapping("/pictures/id/{id}")
@@ -53,7 +54,7 @@ public class PictureController {
         Picture picture;
         picture = this.pictureBusinessController.findPictureById(id).get();
         String filepath = picture.getPath();
-        String fileFolderPath = "D:\\UPM_MASTER_MIW\\mater_MIW_UPM\\10-TFM\\SmartRoom-Pictures";
+        String fileFolderPath = "D:\\Menu-Pictures";
         File file = new File(fileFolderPath + filepath);
         if(!file.isDirectory()){
             String encodeBase64 = null;
@@ -89,7 +90,7 @@ public class PictureController {
         for(final Picture p : picturesFromDB){
             ids.add(p.getId());
         }
-        String fileFolderPath = "D:\\UPM_MASTER_MIW\\mater_MIW_UPM\\10-TFM\\SmartRoom-Pictures";
+        String fileFolderPath = "D:\\Menu-Pictures";
         for(final Long id : ids){
             String filepath = this.pictureBusinessController.findPictureById(id).get().getPath();
             File file = new File(fileFolderPath + filepath);
@@ -127,8 +128,10 @@ public class PictureController {
         //使用时间给上传的文件命名，这种方式没有用uuid命名好，因为同一时间有可能会上传多个文件
         SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmssSS");
         String res = sdf.format(new Date());
+        //加一个随机数
+        String random = Double.toString(1+Math.random()*(10-1+1));
         //获取文件的后缀名
-        String newFileName = res+".jpg";
+        String newFileName = res+random+".jpg";
         // 跟目录设置是在SpringServerApplication 中的MultipartConfigElement中设置的。
         String rootPath = "/pictures/";
         File newFile = new File(rootPath+newFileName);

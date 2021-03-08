@@ -46,16 +46,17 @@ public interface OrderDishListRepository extends CrudRepository<OrderDishList, L
 
 
     ///////////////////针对某个order中一个菜
-    //查找改order中的所有菜
+    //查找某ID的order中的所有菜
     @Transactional
     @Query("select o from OrderDishList o where o.orderId = ?1")
-    Optional<OrderDishList> searchDiscountDish(Long orderId);
+    Optional<OrderDishList> findAllDishList(Long orderId);
 
+    //查找某id order中某id的菜
     @Transactional
     @Query("select o from OrderDishList o where o.orderId = ?1 and o.id = ?2")
-    Optional<OrderDishList> searchDiscountDish(Long orderId, Long orderDishId);
+    Optional<OrderDishList> searchDishByIdInOneOrder(Long orderId, Long orderDishId);
 
-    //某个菜单中添加一个菜
+    //某个order中添加一个菜
     //TODO
 
 

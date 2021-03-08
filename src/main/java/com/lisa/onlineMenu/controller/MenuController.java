@@ -35,7 +35,7 @@ public class MenuController {
     }
     //增加一个新菜单
     @RequestMapping("/menu/add")
-    public Menu addDish(@RequestBody Menu m) {
+    public Menu addMenu(@RequestBody Menu m) {
         return menuBusinessController.saveMenu(m);
     }
 
@@ -47,10 +47,12 @@ public class MenuController {
 
     //给一个菜单改名
     @PatchMapping("/menu/update/{id}")
-    public int updateDish(@PathVariable Long id, @RequestBody Menu m){
+    public int updateMenuName(@PathVariable Long id, @RequestBody Menu m){
         return this.menuBusinessController.updateMenuName(id, m.getName());
     }
     /********menu整体操作********/
+
+
 
 
     /********具体某一个menu操作********/
