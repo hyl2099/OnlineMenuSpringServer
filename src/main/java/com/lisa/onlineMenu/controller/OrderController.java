@@ -7,7 +7,7 @@ import com.lisa.onlineMenu.documents.order.OrderDishList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-
+@RestController
 public class OrderController {
     private OrderDishListBusinessController orderDishListBusinessController;
     private OrderBusinessController orderBusinessController;
