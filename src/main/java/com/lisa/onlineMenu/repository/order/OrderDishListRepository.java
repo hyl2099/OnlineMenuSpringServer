@@ -5,13 +5,15 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
 import java.util.Date;
 import java.util.Optional;
 
+@Repository
 public interface OrderDishListRepository extends CrudRepository<OrderDishList, Long> {
-    ////////////整体修改
+    /*************整体修改***/
     @Modifying
     @Transactional
     @Query("update OrderDishList o set o.orderId = :#{#o.orderId},o.dishId =:#{#o.dishId}," +
@@ -45,7 +47,7 @@ public interface OrderDishListRepository extends CrudRepository<OrderDishList, L
 
 
 
-    ///////////////////针对某个order中一个菜
+    /***********************针对某个order中一个菜**************/
     //查找某ID的order中的所有菜
     @Transactional
     @Query("select o from OrderDishList o where o.orderId = ?1")
@@ -57,7 +59,13 @@ public interface OrderDishListRepository extends CrudRepository<OrderDishList, L
     Optional<OrderDishList> searchDishByIdInOneOrder(Long orderId, Long orderDishId);
 
     //某个order中添加一个菜
-    //TODO
+    @Modifying
+    @Transactional
+    @Query("insert into MenuDishList mdl (orderId,dishId,dishName,dishPrice,actual_price,clientWechat,isServed,add_time,serve_time) " +
+            "VALUES (:orderId, :#{#o.dishId},:#{#o.dishName},:#{#o.dishPrice},:#{#o.actual_price},:#{#o.clientWechat}," +
+            ":#{#o.isServed},:#{#o.add_time},:#{#o.serve_time})")
+    void addDishInOneOrder(@Param("orderId")Long menuId,  @Param("o") OrderDishList o);
+
 
 
     //删除

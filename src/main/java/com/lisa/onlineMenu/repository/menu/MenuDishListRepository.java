@@ -5,9 +5,12 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
+
 import javax.transaction.Transactional;
 import java.util.Optional;
 
+@Repository
 public interface MenuDishListRepository  extends CrudRepository<MenuDishList, Long> {
     @Modifying
     @Transactional//开启事务
@@ -65,5 +68,13 @@ public interface MenuDishListRepository  extends CrudRepository<MenuDishList, Lo
     Optional<MenuDishList> deleteDishInOneMenu(Long dishId, Long menuId);
 
     //某个菜单中添加一个菜
-    //TODO
+    @Modifying
+    @Transactional
+    @Query("insert into MenuDishList mdl (menuId, name, pictureId,  description, price, isInMenuOrAd,  discountPrice) " +
+            "VALUES (:menuId, :#{#d.name},:#{#d.pictureId},:#{#d.description},:#{#d.price},:#{#d.isInMenuOrAd},:#{#d.discountPrice})")
+    void addDishInOneMenu(@Param("menuId")Long menuId,  @Param("d") MenuDishList d);
+
+
+
+
 }

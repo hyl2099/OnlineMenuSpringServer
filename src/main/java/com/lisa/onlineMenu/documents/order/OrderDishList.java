@@ -1,9 +1,11 @@
 package com.lisa.onlineMenu.documents.order;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.util.Date;
 
+@Entity
 public class OrderDishList {
     @Id
     @GeneratedValue

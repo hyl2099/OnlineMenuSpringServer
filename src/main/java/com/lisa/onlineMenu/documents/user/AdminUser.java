@@ -1,8 +1,10 @@
 package com.lisa.onlineMenu.documents.user;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+@Entity
 public class AdminUser {
     @Id
     @GeneratedValue

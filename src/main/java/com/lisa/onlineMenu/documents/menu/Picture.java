@@ -3,6 +3,7 @@ package com.lisa.onlineMenu.documents.menu;
 import javax.persistence.*;
 import java.util.Date;
 
+@Entity
 public class Picture {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

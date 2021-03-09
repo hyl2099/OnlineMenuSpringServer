@@ -36,6 +36,7 @@ public class MenuDishListBusinessController {
 
 
 
+
     /*********针对某个菜单中的菜对象*****/
     //查询某ID的菜单中所有的菜，包括draft
     public Iterable<MenuDishList> findAllDishInOneMenu(Long menuId){
@@ -62,6 +63,12 @@ public class MenuDishListBusinessController {
     //某ID的菜单中查询打折的菜
     public Optional<MenuDishList> searchDiscountDishInOneMenu(Long menuId){
         return this.menuDishListRepository.searchDiscountDish(menuId);
+    }
+
+    //某ID的菜单中增加一个菜
+    public int addDishInOneMenu(Long menuId, MenuDishList d){
+        menuDishListRepository.addDishInOneMenu(menuId,d);
+        return 1;
     }
 
     //某ID的菜单中修改一个菜是否上广告，并修改折扣价

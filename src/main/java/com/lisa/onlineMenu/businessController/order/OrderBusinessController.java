@@ -111,10 +111,12 @@ public class OrderBusinessController {
 
 
 
-
-    /************查询一个order中具体点的菜************/
-
-
-
-
+    /***针对某一个Oder的操作***/
+    //某个order结账
+    //1，设置折扣
+    //TODO
+    //2,返回总价格
+    //TODo
+    //3,修改order状态
+    //TODO
 }

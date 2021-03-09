@@ -1,11 +1,9 @@
 package com.lisa.onlineMenu.documents.order;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
+@Entity
 public class Order {
 
     //    声明主键
