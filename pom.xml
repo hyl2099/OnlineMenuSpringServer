@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.lisa</groupId>
-	<artifactId>springServer</artifactId>
+	<artifactId>onlineMenu</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>menu</name>
-	<description>menuServer</description>
+	<name>onlineMenu</name>
+	<description>onlineMenu</description>
 
 	<developers>
 		<developer>
@@ -31,18 +31,13 @@
 
 		<java.version>14</java.version>
 
-		<!-- Maven -->
-		<maven.compiler.version>3.8.1</maven.compiler.version>
-		<maven.build.timestamp.format>yyyy-MM-dd HH:mm:ss</maven.build.timestamp.format>
-		<!-- Maven. Test Integration -->
-		<maven-surefire-plugin.version>2.21.0</maven-surefire-plugin.version>
-		<maven-failsafe-plugin.version>2.21.0</maven-failsafe-plugin.version>
-		<jacoco.version>0.8.5</jacoco.version>
 		<!-- JUnit -->
 		<junit.platform.version>1.2.0</junit.platform.version>
 		<!-- various -->
 		<itextpdf.version>7.0.2</itextpdf.version>
 		<jwt.version>3.4.1</jwt.version>
+
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
 	</properties>
 
 	<dependencies>

@@ -3,11 +3,13 @@ package com.lisa.onlineMenu.businessController.order;
 import com.lisa.onlineMenu.documents.order.Order;
 import com.lisa.onlineMenu.repository.order.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.Date;
 import java.util.Optional;
 
+@Controller
 public class OrderBusinessController {
     private OrderRepository orderRepository;
 
@@ -83,7 +85,7 @@ public class OrderBusinessController {
         }
     }
 
-    //修改折扣
+    //修改添加时间
     public Integer updateOrderAddTime(Long id, Date add_time){
         if (orderRepository.findById(id) == null)
         {
@@ -96,7 +98,7 @@ public class OrderBusinessController {
     }
 
 
-    //修改折扣
+    //修改结账时间
     public Integer updateOrderPayTime(Long id, Date pay_time){
         if (orderRepository.findById(id) == null)
         {

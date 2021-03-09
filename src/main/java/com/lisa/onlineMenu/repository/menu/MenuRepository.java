@@ -11,7 +11,7 @@ public interface MenuRepository extends CrudRepository<Menu, Long> {
 
     @Modifying
     @Transactional//开启事务
-    @Query("update Menu m set m.name = ?2 where m.id = ?1")
+    @Query(value = "update Menu m set m.name = ?2 where m.id = ?1", nativeQuery = true)
     void updateMenuName(Long id, String name);
 
 }

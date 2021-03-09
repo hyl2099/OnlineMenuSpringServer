@@ -3,10 +3,12 @@ package com.lisa.onlineMenu.businessController.order;
 import com.lisa.onlineMenu.documents.order.OrderDishList;
 import com.lisa.onlineMenu.repository.order.OrderDishListRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.Optional;
 
+@Controller
 public class OrderDishListBusinessController {
     private OrderDishListRepository orderDishListRepository;
 
@@ -83,10 +85,10 @@ public class OrderDishListBusinessController {
     }
 
     //修改某ID的order 某个菜的实际价格
-    public int updateOrderDishActualPriceInOneOrder(Long orderId,Long orderDishId, Float actual_price){
-        this.orderDishListRepository.updateOrderDishActualPriceInOneOrder(orderId, orderDishId,actual_price);
-        return 1;
-    }
+//    public int updateOrderDishActualPriceInOneOrder(Long orderId,Long orderDishId, Float actual_price){
+//        this.orderDishListRepository.updateOrderDishActualPriceInOneOrder(orderId, orderDishId,actual_price);
+//        return 1;
+//    }
 
 
 

@@ -6,7 +6,6 @@ import com.lisa.onlineMenu.documents.menu.Menu;
 import com.lisa.onlineMenu.documents.menu.MenuDishList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.Optional;
 
 @RestController
@@ -69,7 +68,7 @@ public class MenuController {
     }
 
     //查看某一id的菜单中所有上了广告的菜（折扣）
-    @GetMapping("/menu/{id}/allMenuDish")
+    @GetMapping("/menu/{id}/allDiscountDish")
     public Iterable<MenuDishList> findAllADDishInOneMenu(Long id){
         return menuDishListBusinessController.findAllADDishInOneMenu(id);
     }

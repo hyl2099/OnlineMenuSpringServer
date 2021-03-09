@@ -3,9 +3,12 @@ package com.lisa.onlineMenu.businessController.menu;
 import com.lisa.onlineMenu.documents.menu.MenuDishList;
 import com.lisa.onlineMenu.repository.menu.MenuDishListRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
 import javax.persistence.EntityNotFoundException;
 import java.util.Optional;
 
+@Controller
 public class MenuDishListBusinessController {
     private MenuDishListRepository menuDishListRepository;
 

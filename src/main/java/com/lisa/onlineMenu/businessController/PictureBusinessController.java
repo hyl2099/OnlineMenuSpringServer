@@ -4,10 +4,12 @@ import com.lisa.onlineMenu.businessService.PhotoService;
 import com.lisa.onlineMenu.documents.menu.Picture;
 import com.lisa.onlineMenu.repository.menu.PictureRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 
 import javax.persistence.EntityNotFoundException;
 import java.util.Optional;
 
+@Controller
 public class PictureBusinessController {
     PictureRepository pictureRepository;
     private PhotoService photoService;

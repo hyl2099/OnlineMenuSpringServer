@@ -20,7 +20,6 @@ public class MenuRepositoryTest {
     public void addTeacher() {
         // 执行数据保存操作
         menuRepository.save(new Menu());
-
         // 打印Spring为我们自动实例化的对象
         System.out.println(menuRepository);
     }
